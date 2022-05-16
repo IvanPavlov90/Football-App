@@ -1,0 +1,21 @@
+{
+  "name": "football-app",
+  "version": "1.0.0",
+  "description": "this app is for fun, and is made on Angular + express.js (TS) + MongoDB",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanPavlov90/Football-App.git"
+  },
+  "keywords": [
+    "football",
+    "stats",
+    "express",
+    "angular",
+    "mongoDB"
+  ],
+  "author": "Ivan Pavlov",
+  "license": "ISC"
+}
