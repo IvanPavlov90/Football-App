@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "this app is for fun, and is made on Angular + express.js + MongoDB",
   "scripts": {
-    
+    "client": "cd ./client && npm run start",
+    "server": "cd ./server && npm run start:dev"
   },
   "repository": {
     "type": "git",

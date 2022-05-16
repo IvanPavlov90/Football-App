@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+.admin-header {
+  font-size: 2rem;
+  text-align: center;
+} 
+
+.admin-container {
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .admin-container__btn {
+    width: 15%;
+    height: 50px;
+    border: 0;
+    border-radius: 10px;
+    background-color: $admin-btn-color;
+    cursor: pointer;
+  }
+}
