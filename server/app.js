@@ -5,7 +5,6 @@ const port = 3000;
 
 async function connectDatabase () {
   try {
-    console.log(process.env);
     await mongoose.connect(process.env.DB_URI);
     app.listen(port, () => {
       console.log(`Example app listening at http://localhost:${port}`);

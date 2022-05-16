@@ -1,0 +1,38 @@
+@import '../../styles/variables';
+
+.admin-form {
+  width: 60%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid $form-border-color;
+  border-radius: 10px;
+
+  .admin-form__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .admin-form__container__input {
+      width: 85%;
+      height: 18px;
+      margin-bottom: 15px;
+      padding-left: 5px;
+    }
+
+    .admin-form__container__label {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+  }
+
+  .admin-form__container__submit {
+    width: 12%;
+    height: 30px;
+    margin-top: 15px;
+    background-color: $form-submit-btn-color;
+    border: 0px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}

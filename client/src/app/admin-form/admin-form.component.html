@@ -1,1 +1,32 @@
-<p>{{form}}</p>
+<form class="admin-form">
+  <div *ngIf="form === 'league'; then leagueTemplate else elseTemplate"></div>
+  <input 
+    *ngIf="form !== null" 
+    type="submit" 
+    class="admin-form__container__submit" 
+    value="Отправить"
+  >
+</form>
+
+<ng-template #leagueTemplate>
+  <div class="admin-form__container">
+    <label for="name" class="admin-form__container__label">Название лиги:</label>
+    <input 
+      type="text" 
+      class="admin-form__container__input" 
+      id="name"
+      placeholder="Российская Футбольная Премьер-Лига"
+      required
+    >
+    <label for="file" class="admin-form__container__label">Выберите логотип лиги:</label>
+    <input 
+      type="file" 
+      class="admin-form__container__input_file" 
+      id="file"
+    >
+  </div>
+</ng-template>
+
+<ng-template #elseTemplate>
+  <p>Выберите действие</p>
+</ng-template>
