@@ -1,7 +1,7 @@
 {
   "name": "football-app",
   "version": "1.0.0",
-  "description": "this app is for fun, and is made on Angular + express.js (TS) + MongoDB",
+  "description": "this app is for fun, and is made on Angular + express.js + MongoDB",
   "scripts": {
     
   },

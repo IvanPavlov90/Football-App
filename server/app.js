@@ -1,11 +1,18 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const mongoose = require('mongoose');
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+async function connectDatabase () {
+  try {
+    console.log(process.env);
+    await mongoose.connect(process.env.DB_URI);
+    app.listen(port, () => {
+      console.log(`Example app listening at http://localhost:${port}`);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+}
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-});
+connectDatabase();
