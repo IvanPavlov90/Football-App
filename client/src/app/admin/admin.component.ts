@@ -9,10 +9,10 @@ export class AdminComponent implements OnInit {
 
   constructor() { }
 
-  form: string | null = null; 
+  formType: string | null = null; 
 
   changeForm (value: string) {
-    this.form = value;
+    this.formType = value;
   }
 
   ngOnInit(): void {

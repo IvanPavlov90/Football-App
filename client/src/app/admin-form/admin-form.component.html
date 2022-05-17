@@ -1,32 +1,37 @@
 <form class="admin-form">
-  <div *ngIf="form === 'league'; then leagueTemplate else elseTemplate"></div>
+  <div *ngIf="formType === 'league'; then leagueTemplate"></div>
   <input 
-    *ngIf="form !== null" 
+    *ngIf="formType !== null" 
     type="submit" 
     class="admin-form__container__submit" 
     value="Отправить"
+    (click)="sendForm($event)"
   >
 </form>
 
 <ng-template #leagueTemplate>
-  <div class="admin-form__container">
+  <div class="admin-form__container" [formGroup]="adminForm">
     <label for="name" class="admin-form__container__label">Название лиги:</label>
     <input 
       type="text" 
       class="admin-form__container__input" 
       id="name"
       placeholder="Российская Футбольная Премьер-Лига"
+      formControlName="leagueName"
       required
     >
-    <label for="file" class="admin-form__container__label">Выберите логотип лиги:</label>
+    <label for="file" class="admin-form__container__label">Выберите логотип лиги (принимаются только логотипы с расширением .png):</label>
     <input 
       type="file" 
       class="admin-form__container__input_file" 
       id="file"
+      accept=".png"
+      (change)="changeFiles($event)"
+      required
     >
   </div>
 </ng-template>
 
-<ng-template #elseTemplate>
+<ng-template #nullTemplate>
   <p>Выберите действие</p>
 </ng-template>
