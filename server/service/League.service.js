@@ -9,5 +9,10 @@ module.exports = {
       leagueName: league.leagueName,
       image: league.image,
     })
+  },
+  getLeagues: async () => {
+    return await League.find().sort({
+      leagueName: -1,
+    });
   }
 }
