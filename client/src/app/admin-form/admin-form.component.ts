@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { League } from 'src/interfaces/interfaces';
+import { FormBuilder } from '@angular/forms';
+import { LeagueRequest } from 'src/interfaces/interfaces';
 import { AdminService } from '../admin/service/admin.service';
 
 @Component({
@@ -10,17 +10,18 @@ import { AdminService } from '../admin/service/admin.service';
 })
 export class AdminFormComponent implements OnInit {
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService, private formBuilder: FormBuilder) { }
 
   @Input() formType: string | null = null;
-  adminForm = new FormGroup({
-    leagueName: new FormControl(''),
+  adminForm = this.formBuilder.group({
+    leagueName: [''],
+    image: [''],
   });
-  selectedFile: ArrayBuffer | null | string = '';
+  selectedFile: string | null | ArrayBuffer = '';
 
   async sendForm(e: any) {
     e.preventDefault();
-    const league: League = {
+    const league: LeagueRequest = {
       leagueName: this.adminForm.value.leagueName,
       image: this.selectedFile,
     }
@@ -29,7 +30,6 @@ export class AdminFormComponent implements OnInit {
 
   async changeFiles(e: any) {
     this.selectedFile = await this.convertToBase64(e.target.files[0]);
-    console.log(this.selectedFile);
   }
 
   private async convertToBase64 (file: File): Promise<string | null | ArrayBuffer> {

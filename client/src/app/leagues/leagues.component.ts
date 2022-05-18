@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { League } from 'src/interfaces/interfaces';
+import { LeagueResponse } from 'src/interfaces/interfaces';
 import { LeagueService } from './service/league.service';
 
 @Component({
@@ -11,11 +11,11 @@ export class LeaguesComponent implements OnInit {
 
   constructor(private leagueService: LeagueService) { }
 
-  leagues: Array<League> = []
+  leagues: Array<LeagueResponse> = []
 
   ngOnInit(): void {
     this.leagueService.getLeagues().subscribe({
-      next: (value: any) => this.leagues = value.leagues,
+      next: (value: Array<LeagueResponse>) => this.leagues = value,
     })
   }
 

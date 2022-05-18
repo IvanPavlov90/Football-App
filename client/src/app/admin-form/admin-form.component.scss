@@ -23,16 +23,22 @@
       margin-bottom: 5px;
       font-weight: bold;
     }
-  }
 
-  .admin-form__container__submit {
-    width: 12%;
-    height: 30px;
-    margin-top: 15px;
-    background-color: $form-submit-btn-color;
-    border: 0px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
+    .admin-form__container__submit {
+      width: 12%;
+      height: 30px;
+      margin-top: 15px;
+      background-color: $form-submit-btn-color;
+      border: 0px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .admin-form__container__preload-img {
+      width: 80px;
+      height: 80px;
+      margin-top: 10px;
+    }
   }
 }

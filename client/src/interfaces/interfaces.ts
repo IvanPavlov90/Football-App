@@ -1,4 +1,8 @@
-export interface League {
+export interface LeagueRequest {
   leagueName: string,
-  image: any,
+  image: string | ArrayBuffer | null,
+}
+
+export interface LeagueResponse extends LeagueRequest {
+  image: string,
 }

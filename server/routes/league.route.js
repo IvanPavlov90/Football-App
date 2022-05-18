@@ -13,7 +13,7 @@ router.get('/leagues', async (request, response) => {
           image: Buffer.from(league.image, 'base64').toString('utf-8') 
         });
       });
-      response.status(200).json({ leagues: responseLeagues });
+      response.status(200).json(responseLeagues);
     } else {
       response.status(501).json({ error: '501' });
     }
