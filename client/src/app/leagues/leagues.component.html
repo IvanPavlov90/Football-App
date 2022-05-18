@@ -1,4 +1,4 @@
 <h2 class="leagues__header">Чемпионаты</h2>
 <div class="leagues" >
-  <league-item *ngFor="let league of leagues" [leagueName]="league.leagueName" [image]="league.image"></league-item>
+  <league-item *ngFor="let league of leagues$|async" [leagueName]="league.leagueName" [image]="league.image"></league-item>
 </div>

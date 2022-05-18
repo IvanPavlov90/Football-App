@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { LeagueResponse } from 'src/interfaces/interfaces';
+import { loadLeagueSuccess } from '../store/leagues/leagues.actions';
 import { LeagueService } from './service/league.service';
 
 @Component({
@@ -9,13 +12,18 @@ import { LeagueService } from './service/league.service';
 })
 export class LeaguesComponent implements OnInit {
 
-  constructor(private leagueService: LeagueService) { }
+  constructor(private leagueService: LeagueService, private store: Store<{ leagues: Array<LeagueResponse> }>) { 
+    this.leagues$ = store.select('leagues');
+  }
 
-  leagues: Array<LeagueResponse> = []
+  leagues$: Observable<Array<LeagueResponse>>
 
   ngOnInit(): void {
     this.leagueService.getLeagues().subscribe({
-      next: (value: Array<LeagueResponse>) => this.leagues = value,
+      next: (value: Array<LeagueResponse>) => {
+        this.store.dispatch(loadLeagueSuccess({ leagues: value }));
+        console.log(this.leagues$);
+      },
     })
   }
 
