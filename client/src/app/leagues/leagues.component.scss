@@ -1,0 +1,13 @@
+.leagues__header {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.leagues {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}

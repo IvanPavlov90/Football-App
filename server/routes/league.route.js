@@ -6,7 +6,14 @@ router.get('/leagues', async (request, response) => {
   try {
     const leagues = await getLeagues();
     if (leagues.length) {
-      response.status(200).json({ leagues });
+      const responseLeagues = [];
+      leagues.forEach(league => {
+        responseLeagues.push({ 
+          leagueName: league.leagueName, 
+          image: Buffer.from(league.image, 'base64').toString('utf-8') 
+        });
+      });
+      response.status(200).json({ leagues: responseLeagues });
     } else {
       response.status(501).json({ error: '501' });
     }

@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.leagues-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid $form-border-color;
+  border-radius: 10px;
+  cursor: pointer;
+
+  .leagues-item__img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .leagues-item__name {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.leagues-item:hover {
+  background-color: $league-hover-color;
+  transition-duration: 1s;
+}

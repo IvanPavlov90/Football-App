@@ -29,6 +29,7 @@ export class AdminFormComponent implements OnInit {
 
   async changeFiles(e: any) {
     this.selectedFile = await this.convertToBase64(e.target.files[0]);
+    console.log(this.selectedFile);
   }
 
   private async convertToBase64 (file: File): Promise<string | null | ArrayBuffer> {

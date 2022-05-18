@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { LeaguesComponent } from './leagues/leagues.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminFormComponent } from './admin-form/admin-form.component';
+import { SafeURLPipe } from './pipes/safe-url.pipe';
+import { LeagueItemComponent } from './league-item/league-item.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { AdminFormComponent } from './admin-form/admin-form.component';
     LeaguesComponent,
     AdminComponent,
     AdminFormComponent,
+    SafeURLPipe,
+    LeagueItemComponent,
   ],
   imports: [
     BrowserModule,
