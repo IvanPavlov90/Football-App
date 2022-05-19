@@ -15,6 +15,7 @@ import { leagueReducer } from './store/leagues/leagues.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { LeagueEffects } from './store/leagues/league.effects';
+import { NotificatorComponent } from './components/notificator/notificator.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LeagueEffects } from './store/leagues/league.effects';
     AdminFormComponent,
     SafeURLPipe,
     LeagueItemComponent,
+    NotificatorComponent,
   ],
   imports: [
     BrowserModule,
