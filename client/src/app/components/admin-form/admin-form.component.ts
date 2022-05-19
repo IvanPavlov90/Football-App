@@ -12,12 +12,12 @@ import { LeagueRequest, LeagueResponse } from '../../interfaces/league.interface
 export class AdminFormComponent implements OnInit {
 
   constructor(
-    private formBuilder: FormBuilder,
-    private store: Store<{ leagues: Array<LeagueResponse> }>
+    private _formBuilder: FormBuilder,
+    private _store: Store<{ leagues: Array<LeagueResponse> }>
   ) { }
 
   @Input() formType: string | null = null;
-  adminForm = this.formBuilder.group({
+  adminForm = this._formBuilder.group({
     leagueName: [''],
     image: [''],
   });
@@ -29,7 +29,7 @@ export class AdminFormComponent implements OnInit {
       leagueName: this.adminForm.value.leagueName,
       image: this.selectedFile,
     }
-    this.store.dispatch(addLeague(league));
+    this._store.dispatch(addLeague(league));
   }
 
   async changeFiles(e: any) {

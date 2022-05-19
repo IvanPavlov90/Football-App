@@ -9,8 +9,8 @@ import { NotificationsService } from 'src/app/services/Notifications/notificatio
 })
 export class NotificatorComponent implements OnInit {
 
-  constructor(private notificationService: NotificationsService) { 
-    this.notificationService.getNotifications().subscribe(
+  constructor(private _notificationService: NotificationsService) { 
+    this._notificationService.getNotifications().subscribe(
       (notification: NotificationModel) => {
         this.notifications.add(notification);
         setTimeout(()=> {

@@ -11,14 +11,14 @@ import { loadLeagues } from '../../store/leagues/leagues.actions';
 })
 export class LeaguesComponent implements OnInit {
 
-  constructor(private store: Store<{ leagues: Array<LeagueResponse> }>) { 
-    this.leagues$ = store.select('leagues');
+  constructor(private _store: Store<{ leagues: Array<LeagueResponse> }>) { 
+    this.leagues$ = _store.select('leagues');
   }
 
   leagues$: Observable<Array<LeagueResponse>>
 
   ngOnInit(): void {
-    this.store.dispatch(loadLeagues());
+    this._store.dispatch(loadLeagues());
   }
 
 }

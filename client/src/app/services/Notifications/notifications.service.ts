@@ -9,13 +9,13 @@ export class NotificationsService {
 
   constructor() { }
 
-  private notifications: Subject<NotificationModel> = new Subject<NotificationModel>();
+  private _notifications: Subject<NotificationModel> = new Subject<NotificationModel>();
 
   getNotifications(): Subject<NotificationModel> {
-		return this.notifications;
+		return this._notifications;
 	}
 
   showNotification(message: string, type: string) {
-		this.notifications.next(new NotificationModel(message, type));
+		this._notifications.next(new NotificationModel(message, type));
 	}
 }
