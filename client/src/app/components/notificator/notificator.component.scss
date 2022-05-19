@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+.notificator {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 20px;
+  border: 1px solid $form-border-color;
+  border-radius: 10px;
+
+  .notificator__text {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}
+
+.done {
+  background-color: $notification-done;
+}
+
+.error {
+  background-color: $notification-error;
+  color: $notification-error-text;
+}

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { LeagueRequest } from '../../interfaces/league.interface';
-import { LeagueService } from '../../services/LeagueService/league.service';
+import { Store } from '@ngrx/store';
+import { addLeague } from 'src/app/store/leagues/leagues.actions';
+import { LeagueRequest, LeagueResponse } from '../../interfaces/league.interface';
 
 @Component({
   selector: 'admin-form',
@@ -10,10 +11,13 @@ import { LeagueService } from '../../services/LeagueService/league.service';
 })
 export class AdminFormComponent implements OnInit {
 
-  constructor(private leagueService: LeagueService, private formBuilder: FormBuilder) { }
+  constructor(
+    private _formBuilder: FormBuilder,
+    private _store: Store<{ leagues: Array<LeagueResponse> }>
+  ) { }
 
   @Input() formType: string | null = null;
-  adminForm = this.formBuilder.group({
+  adminForm = this._formBuilder.group({
     leagueName: [''],
     image: [''],
   });
@@ -25,7 +29,7 @@ export class AdminFormComponent implements OnInit {
       leagueName: this.adminForm.value.leagueName,
       image: this.selectedFile,
     }
-    this.leagueService.addLeague(league);
+    this._store.dispatch(addLeague(league));
   }
 
   async changeFiles(e: any) {

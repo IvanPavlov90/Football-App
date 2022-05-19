@@ -1,0 +1,8 @@
+<div *ngFor="let notificator of notifications">
+  <div *ngIf="notificator.type === 'done'" class="notificator done">
+    <p class="notificator__text">{{notificator.header}}</p>
+  </div>
+  <div *ngIf="notificator.type === 'error'" class="notificator error">
+    <p class="notificator__text">{{notificator.header}}</p>
+  </div>
+</div>

@@ -4,7 +4,7 @@
 
 <ng-template #leagueTemplate>
   <form class="admin-form__container" [formGroup]="adminForm" (ngSubmit)="sendForm($event)">
-    <label for="name" class="admin-form__container__label">Название лиги:</label>
+    <label for="name" class="admin-form__container__label">Название чемпионата:</label>
     <input 
       type="text" 
       class="admin-form__container__input" 
@@ -13,7 +13,7 @@
       formControlName="leagueName"
       required minlength="4"
     >
-    <label for="file" class="admin-form__container__label">Выберите логотип лиги (принимаются только логотипы с расширением .png):</label>
+    <label for="file" class="admin-form__container__label">Выберите логотип чемпионата (принимаются только логотипы с расширением .png):</label>
     <input 
       type="file" 
       class="admin-form__container__input_file" 
