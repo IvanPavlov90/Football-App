@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { NotificationModel } from 'src/app/services/Notifications/notification.model';
-import { NotificationsService } from 'src/app/services/Notifications/notifications.service';
-import { LeagueRequest } from '../../interfaces/league.interface';
-import { LeagueService } from '../../services/LeagueService/league.service';
+import { Store } from '@ngrx/store';
+import { addLeague } from 'src/app/store/leagues/leagues.actions';
+import { LeagueRequest, LeagueResponse } from '../../interfaces/league.interface';
 
 @Component({
   selector: 'admin-form',
@@ -13,9 +12,8 @@ import { LeagueService } from '../../services/LeagueService/league.service';
 export class AdminFormComponent implements OnInit {
 
   constructor(
-    private leagueService: LeagueService, 
     private formBuilder: FormBuilder,
-    private _notificationService: NotificationsService,
+    private store: Store<{ leagues: Array<LeagueResponse> }>
   ) { }
 
   @Input() formType: string | null = null;
@@ -31,12 +29,11 @@ export class AdminFormComponent implements OnInit {
       leagueName: this.adminForm.value.leagueName,
       image: this.selectedFile,
     }
-    this.leagueService.addLeague(league);
+    this.store.dispatch(addLeague(league));
   }
 
   async changeFiles(e: any) {
     this.selectedFile = await this.convertToBase64(e.target.files[0]);
-    this._notificationService.showNotification(new NotificationModel("Картинка загружена"));
   }
 
   private async convertToBase64 (file: File): Promise<string | null | ArrayBuffer> {

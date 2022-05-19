@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { LeagueResponse } from '../../interfaces/league.interface';
-import { LeagueActions } from '../../store/leagues/leagues.actions';
+import { loadLeagues } from '../../store/leagues/leagues.actions';
 
 @Component({
   selector: 'leagues',
@@ -18,7 +18,7 @@ export class LeaguesComponent implements OnInit {
   leagues$: Observable<Array<LeagueResponse>>
 
   ngOnInit(): void {
-    this.store.dispatch({ type: LeagueActions.LoadLeagues });
+    this.store.dispatch(loadLeagues());
   }
 
 }

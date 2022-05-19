@@ -13,3 +13,12 @@
     margin: 0;
   }
 }
+
+.done {
+  background-color: $notification-done;
+}
+
+.error {
+  background-color: $notification-error;
+  color: $notification-error-text;
+}

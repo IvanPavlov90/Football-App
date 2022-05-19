@@ -15,7 +15,7 @@ export class NotificationsService {
 		return this.notifications;
 	}
 
-  showNotification(notification: NotificationModel) {
-		this.notifications.next(notification);
+  showNotification(message: string, type: string) {
+		this.notifications.next(new NotificationModel(message, type));
 	}
 }

@@ -7,7 +7,7 @@ router.post('/admin/league/add', async (request, response) => {
     const league = createLeague({ ...request.body });
     const result = await league.save();
     if (result) {
-      response.status(201).json({ message: 'created' });
+      response.status(201).json(league);
     } else {
       response.status(501).json({ error: '501' });
     }
