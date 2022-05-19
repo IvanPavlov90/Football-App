@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { LeagueResponse } from "src/interfaces/interfaces";
+import { LeagueResponse } from "src/app/interfaces/league.interface";
 import { loadLeagueSuccess } from "./leagues.actions";
 
 export const initialState: Array<LeagueResponse> = [];

@@ -1,17 +1,14 @@
 import { createAction, props } from '@ngrx/store';
-import { LeagueResponse } from 'src/interfaces/interfaces';
+import { LeagueResponse } from 'src/app/interfaces/league.interface';
 
 export enum LeagueActions {
   LoadLeagues = '[League Component] Load Leagues',
   LoadLeaguesSuccess = '[League Component] Load Leagues Success',
 }
 
-interface Action {
-  type: string;
-  leagues : Array<LeagueResponse>
-}
+export const loadLeagues = createAction(LeagueActions.LoadLeagues);
 
 export const loadLeagueSuccess = createAction(
-  '[League] Load Leagues Success',
+  LeagueActions.LoadLeaguesSuccess,
   props<{ leagues: Array<LeagueResponse> }>()
 );

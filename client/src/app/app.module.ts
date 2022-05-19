@@ -6,13 +6,15 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LeaguesComponent } from './leagues/leagues.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminFormComponent } from './admin-form/admin-form.component';
+import { LeaguesComponent } from './components/leagues/leagues.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminFormComponent } from './components/admin-form/admin-form.component';
 import { SafeURLPipe } from './pipes/safe-url.pipe';
-import { LeagueItemComponent } from './league-item/league-item.component';
+import { LeagueItemComponent } from './components/league-item/league-item.component';
 import { leagueReducer } from './store/leagues/leagues.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { LeagueEffects } from './store/leagues/league.effects';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreDevtoolsModule.instrument({
       maxAge: 10,
       autoPause: true
-    })
+    }),
+    EffectsModule.forRoot([LeagueEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

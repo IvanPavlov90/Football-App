@@ -2,7 +2,7 @@ const { Router } = require("express");
 const { createLeague } = require("../service/League.service");
 const router = Router();
 
-router.post('/admin/league', async (request, response) => {
+router.post('/admin/league/add', async (request, response) => {
   try {
     const league = createLeague({ ...request.body });
     const result = await league.save();

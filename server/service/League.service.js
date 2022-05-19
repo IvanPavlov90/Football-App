@@ -12,7 +12,7 @@ module.exports = {
   },
   getLeagues: async () => {
     return await League.find().sort({
-      leagueName: -1,
+      leagueName: 1,
     });
   }
 }
