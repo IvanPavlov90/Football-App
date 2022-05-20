@@ -23,5 +23,4 @@ app.use(cors({
 );
 
 app.use(express.json({ extended: true }));
-app.use('/api', require('./routes/admin.route'));
 app.use('/api', require('./routes/league.route'));

@@ -11,7 +11,7 @@ export class LeagueService {
   constructor(private _http: HttpClient) { }
 
   private _GET_LEAGUES_URL = 'http://localhost:3000/api/leagues';
-  private _ADD_LEAGUE_URL = 'http://localhost:3000/api/admin/league/add';
+  private _ADD_LEAGUE_URL = 'http://localhost:3000/api/league/add';
 
   addLeague(league: LeagueRequest): Observable<LeagueResponse> {
     return this._http.post<LeagueResponse>(this._ADD_LEAGUE_URL, JSON.stringify(league), {
