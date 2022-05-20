@@ -6,9 +6,9 @@ const schema = new Schema({
   clubName: String,
   image: Buffer,
   f_year: Number,
-  history: String,
   city: String,
   stadium: String,
+  history: String,
 });
 
 module.exports = {

@@ -19,8 +19,20 @@
       padding-left: 5px;
     }
 
+    .admin-form__container__input_select {
+      width: 50%;
+    }
+
+    .admin-form__container__input_file {
+      margin-bottom: 15px;
+    }
+
+    .admin-form__container__input_textarea {
+      height: 72px;
+    }
+
     .admin-form__container__label {
-      margin-bottom: 5px;
+      margin: 0px 0px 5px 0px;
       font-weight: bold;
     }
 
@@ -38,7 +50,7 @@
     .admin-form__container__preload-img {
       width: 80px;
       height: 80px;
-      margin-top: 10px;
+      margin-bottom: 10px;
     }
   }
 }

@@ -19,7 +19,12 @@ export class AdminFormComponent implements OnInit {
   @Input() formType: string | null = null;
   adminForm = this._formBuilder.group({
     leagueName: [''],
+    clubName: [''],
     image: [''],
+    number: [''],
+    city: [''],
+    stadium: [''],
+    history: ['']
   });
   selectedFile: string | null | ArrayBuffer = '';
 
