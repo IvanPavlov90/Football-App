@@ -1,0 +1,12 @@
+@import '../../styles/variables';
+
+.admin-form__container__submit {
+  width: 12%;
+  height: 30px;
+  margin-top: 15px;
+  background-color: $form-submit-btn-color;
+  border: 0px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}

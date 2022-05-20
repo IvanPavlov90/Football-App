@@ -5,4 +5,5 @@ export interface LeagueRequest {
 
 export interface LeagueResponse extends LeagueRequest {
   image: string,
+  id: string,
 }

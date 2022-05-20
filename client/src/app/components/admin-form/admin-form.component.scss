@@ -21,6 +21,7 @@
 
     .admin-form__container__input_select {
       width: 50%;
+      height: 22px;
     }
 
     .admin-form__container__input_file {
@@ -34,17 +35,6 @@
     .admin-form__container__label {
       margin: 0px 0px 5px 0px;
       font-weight: bold;
-    }
-
-    .admin-form__container__submit {
-      width: 12%;
-      height: 30px;
-      margin-top: 15px;
-      background-color: $form-submit-btn-color;
-      border: 0px;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
     }
 
     .admin-form__container__preload-img {

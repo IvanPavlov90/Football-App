@@ -5,15 +5,7 @@
 
 <ng-template #leagueTemplate>
   <form class="admin-form__container" [formGroup]="adminForm" (ngSubmit)="sendForm($event)">
-    <label for="leagueName" class="admin-form__container__label">Название чемпионата:</label>
-    <input 
-      type="text" 
-      class="admin-form__container__input" 
-      id="leagueName"
-      placeholder="Российская Футбольная Премьер-Лига"
-      formControlName="leagueName"
-      required minlength="4"
-    >
+    <info-input type="leagueName" formControlName="leagueName" required minlength="4"></info-input>
     <label for="file" class="admin-form__container__label">Выберите логотип чемпионата (принимаются только логотипы с расширением .png):</label>
     <input 
       type="file" 
@@ -31,33 +23,22 @@
         class="admin-form__container__preload-img"
       />
     </div>
-    <input 
-      type="submit" 
-      class="admin-form__container__submit" 
-      value="Отправить"
-      [disabled]="!adminForm.valid"
-    >
+    <submit-btn [isDisabled]=!adminForm.valid></submit-btn>
   </form>
 </ng-template>
 
 <ng-template #clubTemplate>
   <form class="admin-form__container" [formGroup]="adminForm" (ngSubmit)="sendForm($event)">
-    <label for="leagueName" class="admin-form__container__label">Выберите чемпионат:</label>
+    <label for="leagueId" class="admin-form__container__label">Выберите чемпионат:</label>
     <select
       class="admin-form__container__input admin-form__container__input_select"
-      id="leagueName"
-      formControlName="leagueName"
+      id="leagueId"
+      formControlName="leagueId"
       required minlength="1"
-    ></select>
-    <label for="clubName" class="admin-form__container__label">Название клуба:</label>
-    <input 
-      type="text" 
-      class="admin-form__container__input" 
-      id="clubName"
-      placeholder="Локомотив Москва"
-      formControlName="clubName"
-      required minlength="2"
     >
+      <option *ngFor="let league of leagues$|async" value={{league.id}}>{{league.leagueName}}</option>
+    </select>
+    <info-input type="clubName" formControlName="clubName" required minlength="2"></info-input>
     <label for="file" class="admin-form__container__label">Выберите логотип клуба (принимаются только логотипы с расширением .png):</label>
     <input 
       type="file" 
@@ -75,35 +56,9 @@
         class="admin-form__container__preload-img"
       />
     </div>
-    <label for="number" class="admin-form__container__label">Год основания клуба:</label>
-    <input 
-      type="number" 
-      class="admin-form__container__input" 
-      id="number"
-      placeholder="1950"
-      formControlName="number"
-      required minlength="4"
-      min="1850"
-      max="2022"
-    >
-    <label for="city" class="admin-form__container__label">Город, в котором базируется команда:</label>
-    <input 
-      type="text" 
-      class="admin-form__container__input" 
-      id="city"
-      placeholder="Москва"
-      formControlName="city"
-      required minlength="2"
-    >
-    <label for="stadium" class="admin-form__container__label">Название стадиона:</label>
-    <input 
-      type="text" 
-      class="admin-form__container__input" 
-      id="stadium"
-      placeholder="РЖД Арена"
-      formControlName="stadium"
-      required minlength="2"
-    >
+    <info-input type="f_year" formControlName="number" required minlength="4"></info-input>
+    <info-input type="city" formControlName="city" required minlength="2"></info-input>
+    <info-input type="stadium" formControlName="stadium" required minlength="2"></info-input>
     <label for="history" class="admin-form__container__label">Краткая история клуба:</label>
     <textarea 
       id="history" 
@@ -111,12 +66,7 @@
       class="admin-form__container__input admin-form__container__input_textarea" 
     >  
     </textarea>
-    <input 
-      type="submit" 
-      class="admin-form__container__submit" 
-      value="Отправить"
-      [disabled]="!adminForm.valid"
-    >
+    <submit-btn [isDisabled]=!adminForm.valid></submit-btn>
   </form>
 </ng-template>
 

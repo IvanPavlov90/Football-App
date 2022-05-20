@@ -16,6 +16,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { LeagueEffects } from './store/leagues/league.effects';
 import { NotificatorComponent } from './components/notificator/notificator.component';
+import { SubmitBtnComponent } from './components/submit-btn/submit-btn.component';
+import { InfoInputComponent } from './components/info-input/info-input.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { NotificatorComponent } from './components/notificator/notificator.compo
     SafeURLPipe,
     LeagueItemComponent,
     NotificatorComponent,
+    SubmitBtnComponent,
+    InfoInputComponent,
   ],
   imports: [
     BrowserModule,

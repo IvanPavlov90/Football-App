@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { addLeague } from 'src/app/store/leagues/leagues.actions';
+import { Observable } from 'rxjs';
+import { addLeague, loadLeagues } from 'src/app/store/leagues/leagues.actions';
 import { LeagueRequest, LeagueResponse } from '../../interfaces/league.interface';
 
 @Component({
@@ -14,11 +15,14 @@ export class AdminFormComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private _store: Store<{ leagues: Array<LeagueResponse> }>
-  ) { }
+  ) { 
+    this.leagues$ = _store.select('leagues');
+  }
 
   @Input() formType: string | null = null;
   adminForm = this._formBuilder.group({
     leagueName: [''],
+    leagueId: [''],
     clubName: [''],
     image: [''],
     number: [''],
@@ -27,6 +31,7 @@ export class AdminFormComponent implements OnInit {
     history: ['']
   });
   selectedFile: string | null | ArrayBuffer = '';
+  leagues$: Observable<Array<LeagueResponse>>
 
   async sendForm(e: any) {
     e.preventDefault();
@@ -35,6 +40,7 @@ export class AdminFormComponent implements OnInit {
       image: this.selectedFile,
     }
     this._store.dispatch(addLeague(league));
+    this.clearForm();
   }
 
   async changeFiles(e: any) {
@@ -51,7 +57,13 @@ export class AdminFormComponent implements OnInit {
     })
   }
 
+  private clearForm(): void {
+    this.adminForm.value.leagueName = '';
+    this.adminForm.value.image = '';
+  }
+
   ngOnInit(): void {
+    this._store.dispatch(loadLeagues());
   }
 
 }

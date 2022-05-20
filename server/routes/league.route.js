@@ -7,7 +7,8 @@ router.get('/leagues', async (request, response) => {
     const leagues = await getLeagues();
     const responseLeagues = [];
     leagues.forEach(league => {
-      responseLeagues.push({ 
+      responseLeagues.push({
+        id: league._id, 
         leagueName: league.leagueName, 
         image: Buffer.from(league.image, 'base64').toString('utf-8') 
       });

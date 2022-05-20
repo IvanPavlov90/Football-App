@@ -1,0 +1,67 @@
+<div *ngIf="type === 'leagueName'; then leagueNameTemplate" class="admin-form__container"></div>
+<div *ngIf="type === 'clubName'; then clubNameTemplate" class="admin-form__container"></div>
+<div *ngIf="type === 'city'; then cityTemplate" class="admin-form__container"></div>
+<div *ngIf="type === 'stadium'; then stadiumTemplate" class="admin-form__container"></div>
+<div *ngIf="type === 'f_year'; then f_yearTemplate" class="admin-form__container"></div>
+
+<ng-template #leagueNameTemplate>
+  <div class="admin-form__container">
+    <label for="input" class="admin-form__container__label">Название чемпионата:</label>
+    <input 
+      type="text" 
+      class="admin-form__container__input" 
+      id="input"
+      placeholder="Российская Футбольная Премьер-Лига"
+    >
+  </div>
+</ng-template>
+
+<ng-template #clubNameTemplate>
+  <div class="admin-form__container">
+    <label for="input" class="admin-form__container__label">Название клуба:</label>
+    <input 
+      type="text" 
+      class="admin-form__container__input" 
+      id="input"
+      placeholder="Локомотив Москва"
+    >
+  </div>
+</ng-template>
+
+<ng-template #cityTemplate>
+  <div class="admin-form__container">
+    <label for="input" class="admin-form__container__label">Город, в котором базируется команда:</label>
+    <input 
+      type="text" 
+      class="admin-form__container__input" 
+      id="input"
+      placeholder="Москва"
+    >
+  </div>
+</ng-template>
+
+<ng-template #stadiumTemplate>
+  <div class="admin-form__container">
+    <label for="input" class="admin-form__container__label">Название стадиона:</label>
+    <input 
+      type="text" 
+      class="admin-form__container__input" 
+      id="input"
+      placeholder="РЖД Арена"
+    >
+  </div>
+</ng-template>
+
+<ng-template #f_yearTemplate>
+  <div class="admin-form__container">
+    <label for="input" class="admin-form__container__label">Год основания клуба:</label>
+    <input 
+      type="number" 
+      class="admin-form__container__input" 
+      id="input"
+      placeholder="1950"
+      min="1850"
+      max="2022"
+    >
+  </div>
+</ng-template>
