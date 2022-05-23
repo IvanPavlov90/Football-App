@@ -1,6 +1,7 @@
 <div class="admin-form">
   <form *ngIf="formType === 'league'; then leagueTemplate"></form>
   <form *ngIf="formType === 'club'; then clubTemplate"></form>
+  <form *ngIf="formType === null; then nullTemplate"></form>
 </div>
 
 <ng-template #leagueTemplate>
@@ -24,7 +25,7 @@
     </select>
     <info-input type="clubName" formControlName="clubName" required minlength="2"></info-input>
     <file-input (selectFile)="fileUpload($event)"></file-input>
-    <info-input type="f_year" formControlName="number" required minlength="4"></info-input>
+    <info-input type="f_year" formControlName="f_year" required minlength="4"></info-input>
     <info-input type="city" formControlName="city" required minlength="2"></info-input>
     <info-input type="stadium" formControlName="stadium" required minlength="2"></info-input>
     <label for="history" class="admin-form__container__label">Краткая история клуба:</label>

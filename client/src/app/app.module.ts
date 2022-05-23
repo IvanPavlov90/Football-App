@@ -11,7 +11,6 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminFormComponent } from './components/admin-form/admin-form.component';
 import { SafeURLPipe } from './pipes/safe-url.pipe';
 import { LeagueItemComponent } from './components/league-item/league-item.component';
-import { leagueReducer } from './store/leagues/leagues.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { LeagueEffects } from './store/leagues/league.effects';
@@ -19,6 +18,7 @@ import { NotificatorComponent } from './components/notificator/notificator.compo
 import { SubmitBtnComponent } from './components/submit-btn/submit-btn.component';
 import { InfoInputComponent } from './components/info-input/info-input.component';
 import { FileInputComponent } from './components/file-input/file-input.component';
+import { reducers } from './store/index'
 
 @NgModule({
   declarations: [
@@ -38,9 +38,7 @@ import { FileInputComponent } from './components/file-input/file-input.component
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({
-      leagues: leagueReducer
-    }),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 10,
       autoPause: true

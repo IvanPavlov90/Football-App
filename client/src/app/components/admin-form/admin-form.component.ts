@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { ClubRequest } from 'src/app/interfaces/club.interface';
+import { addClub } from 'src/app/store/clubs/club.actions';
 import { addLeague, loadLeagues } from 'src/app/store/leagues/leagues.actions';
 import { LeagueRequest, LeagueResponse } from '../../interfaces/league.interface';
 
@@ -24,7 +26,7 @@ export class AdminFormComponent implements OnInit {
     leagueName: [''],
     leagueId: [''],
     clubName: [''],
-    number: [''],
+    f_year: [''],
     city: [''],
     stadium: [''],
     history: ['']
@@ -44,7 +46,16 @@ export class AdminFormComponent implements OnInit {
         this.clearForm();
         break;
       case 'club':
-        console.log(this.adminForm.value);
+        const club: ClubRequest = {
+          _leagueId: this.adminForm.value.leagueId,
+          clubName: this.adminForm.value.clubName,
+          image: this.selectedFile,
+          f_year: this.adminForm.value.f_year,
+          city: this.adminForm.value.city,
+          stadium: this.adminForm.value.stadium,
+          history: this.adminForm.value.history,
+        }
+        this._store.dispatch(addClub(club));
         break;
       default: 
         break;
