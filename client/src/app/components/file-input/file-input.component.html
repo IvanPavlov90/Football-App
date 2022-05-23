@@ -1,0 +1,14 @@
+<div class="file-input-container">
+  <label for="file" class="admin-form__container__label">Выберите логотип чемпионата (принимаются только логотипы с расширением .png):</label>
+  <input 
+    type="file" 
+    class="admin-form__container__input_file" 
+    id="file" 
+    accept=".png" 
+    (change)="changeFiles($event)"
+  >
+  <div *ngIf="selectedFile">
+    <p class="admin-form__container__label">Предпросмотр изображения:</p>
+    <img [src]="selectedFile" class="admin-form__container__preload-img" />
+  </div>
+</div>

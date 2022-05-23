@@ -1,0 +1,19 @@
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+
+  .admin-form__container__input_file {
+    margin-bottom: 15px;
+  }
+  
+  .admin-form__container__label {
+    margin: 0px 0px 5px 0px;
+    font-weight: bold;
+  }
+  
+  .admin-form__container__preload-img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+  }
+}

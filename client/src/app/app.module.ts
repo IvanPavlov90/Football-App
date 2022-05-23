@@ -18,6 +18,7 @@ import { LeagueEffects } from './store/leagues/league.effects';
 import { NotificatorComponent } from './components/notificator/notificator.component';
 import { SubmitBtnComponent } from './components/submit-btn/submit-btn.component';
 import { InfoInputComponent } from './components/info-input/info-input.component';
+import { FileInputComponent } from './components/file-input/file-input.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { InfoInputComponent } from './components/info-input/info-input.component
     NotificatorComponent,
     SubmitBtnComponent,
     InfoInputComponent,
+    FileInputComponent,
   ],
   imports: [
     BrowserModule,

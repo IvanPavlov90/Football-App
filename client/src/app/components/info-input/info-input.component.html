@@ -8,6 +8,10 @@
   <div class="admin-form__container">
     <label for="input" class="admin-form__container__label">Название чемпионата:</label>
     <input 
+      [value]="value"
+      [disabled]="isDisabled"
+      (input)="onChange($event)"
+      (blur)="touched()"
       type="text" 
       class="admin-form__container__input" 
       id="input"
@@ -19,7 +23,11 @@
 <ng-template #clubNameTemplate>
   <div class="admin-form__container">
     <label for="input" class="admin-form__container__label">Название клуба:</label>
-    <input 
+    <input
+      [value]="value"
+      [disabled]="isDisabled"
+      (input)="onChange($event)"
+      (blur)="touched()" 
       type="text" 
       class="admin-form__container__input" 
       id="input"
@@ -32,6 +40,10 @@
   <div class="admin-form__container">
     <label for="input" class="admin-form__container__label">Город, в котором базируется команда:</label>
     <input 
+      [value]="value"
+      [disabled]="isDisabled"
+      (input)="onChange($event)"
+      (blur)="touched()"
       type="text" 
       class="admin-form__container__input" 
       id="input"
@@ -43,7 +55,11 @@
 <ng-template #stadiumTemplate>
   <div class="admin-form__container">
     <label for="input" class="admin-form__container__label">Название стадиона:</label>
-    <input 
+    <input
+      [value]="value"
+      [disabled]="isDisabled"
+      (input)="onChange($event)"
+      (blur)="touched()" 
       type="text" 
       class="admin-form__container__input" 
       id="input"
@@ -56,6 +72,10 @@
   <div class="admin-form__container">
     <label for="input" class="admin-form__container__label">Год основания клуба:</label>
     <input 
+      [value]="value"
+      [disabled]="isDisabled"
+      (input)="onChange($event)"
+      (blur)="touched()"
       type="number" 
       class="admin-form__container__input" 
       id="input"

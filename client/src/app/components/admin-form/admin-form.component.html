@@ -6,23 +6,7 @@
 <ng-template #leagueTemplate>
   <form class="admin-form__container" [formGroup]="adminForm" (ngSubmit)="sendForm($event)">
     <info-input type="leagueName" formControlName="leagueName" required minlength="4"></info-input>
-    <label for="file" class="admin-form__container__label">Выберите логотип чемпионата (принимаются только логотипы с расширением .png):</label>
-    <input 
-      type="file" 
-      class="admin-form__container__input_file" 
-      id="file"
-      accept=".png"
-      (change)="changeFiles($event)"
-      formControlName="image"
-      required minlength="1"
-    >
-    <div *ngIf="selectedFile" >
-      <p class="admin-form__container__label">Предпросмотр изображения:</p>
-      <img 
-        [src]="selectedFile"
-        class="admin-form__container__preload-img"
-      />
-    </div>
+    <file-input (selectFile)="fileUpload($event)"></file-input>
     <submit-btn [isDisabled]=!adminForm.valid></submit-btn>
   </form>
 </ng-template>
@@ -39,23 +23,7 @@
       <option *ngFor="let league of leagues$|async" value={{league.id}}>{{league.leagueName}}</option>
     </select>
     <info-input type="clubName" formControlName="clubName" required minlength="2"></info-input>
-    <label for="file" class="admin-form__container__label">Выберите логотип клуба (принимаются только логотипы с расширением .png):</label>
-    <input 
-      type="file" 
-      class="admin-form__container__input_file" 
-      id="file"
-      accept=".png"
-      (change)="changeFiles($event)"
-      formControlName="image"
-      required minlength="1"
-    >
-    <div *ngIf="selectedFile" >
-      <p class="admin-form__container__label">Предпросмотр изображения:</p>
-      <img 
-        [src]="selectedFile"
-        class="admin-form__container__preload-img"
-      />
-    </div>
+    <file-input (selectFile)="fileUpload($event)"></file-input>
     <info-input type="f_year" formControlName="number" required minlength="4"></info-input>
     <info-input type="city" formControlName="city" required minlength="2"></info-input>
     <info-input type="stadium" formControlName="stadium" required minlength="2"></info-input>

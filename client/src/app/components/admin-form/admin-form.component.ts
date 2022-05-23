@@ -24,42 +24,40 @@ export class AdminFormComponent implements OnInit {
     leagueName: [''],
     leagueId: [''],
     clubName: [''],
-    image: [''],
     number: [''],
     city: [''],
     stadium: [''],
     history: ['']
   });
   selectedFile: string | null | ArrayBuffer = '';
-  leagues$: Observable<Array<LeagueResponse>>
+  leagues$: Observable<Array<LeagueResponse>>;
 
   async sendForm(e: any) {
     e.preventDefault();
-    const league: LeagueRequest = {
-      leagueName: this.adminForm.value.leagueName,
-      image: this.selectedFile,
+    switch(this.formType) {
+      case 'league':
+        const league: LeagueRequest = {
+          leagueName: this.adminForm.value.leagueName,
+          image: this.selectedFile,
+        }
+        this._store.dispatch(addLeague(league));
+        this.clearForm();
+        break;
+      case 'club':
+        console.log(this.adminForm.value);
+        break;
+      default: 
+        break;
     }
-    this._store.dispatch(addLeague(league));
-    this.clearForm();
-  }
-
-  async changeFiles(e: any) {
-    this.selectedFile = await this.convertToBase64(e.target.files[0]);
-  }
-
-  private async convertToBase64 (file: File): Promise<string | null | ArrayBuffer> {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        resolve(reader.result);
-      }
-      reader.readAsDataURL(file);
-    })
   }
 
   private clearForm(): void {
     this.adminForm.value.leagueName = '';
     this.adminForm.value.image = '';
+  }
+
+  public fileUpload(fileName: string | null | ArrayBuffer ) {
+    this.selectedFile = fileName;
   }
 
   ngOnInit(): void {

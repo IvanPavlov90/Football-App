@@ -12,35 +12,19 @@
     flex-direction: column;
     justify-content: space-around;
 
-    .admin-form__container__input {
-      width: 85%;
-      height: 18px;
-      margin-bottom: 15px;
-      padding-left: 5px;
-    }
-
-    .admin-form__container__input_select {
-      width: 50%;
-      height: 22px;
-    }
-
-    .admin-form__container__input_file {
-      margin-bottom: 15px;
-    }
-
-    .admin-form__container__input_textarea {
-      height: 72px;
-    }
-
     .admin-form__container__label {
       margin: 0px 0px 5px 0px;
       font-weight: bold;
     }
 
-    .admin-form__container__preload-img {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 10px;
+    .admin-form__container__input_select {
+      width: 50%;
+      height: 22px;
+      margin-bottom: 15px;
+    }
+
+    .admin-form__container__input_textarea {
+      height: 72px;
     }
   }
 }
