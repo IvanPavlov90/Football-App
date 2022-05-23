@@ -7,17 +7,17 @@ import { NotificationsService } from "src/app/services/Notifications/notificatio
 import { addClub, AddClubError, addClubSuccess } from "./club.actions";
 
 @Injectable()
-export class Clubeffects {
+export class ClubEffects {
   constructor(
-    private actions$: Actions,
+    private _actions$: Actions,
     private _clubService: ClubService,
     private _notificationService: NotificationsService,
   ) { }
 
   addClub$ = createEffect(
-    () => this.actions$.pipe(
+    () => this._actions$.pipe(
       ofType(addClub),
-      exhaustMap((newClub: ClubRequest) => this._clubService.addLeague(newClub).pipe(
+      exhaustMap((newClub: ClubRequest) => this._clubService.addClub(newClub).pipe(
         map(club => {
           this._notificationService.showNotification("Клуб был успешно добавлен", "done");
           return addClubSuccess({ club })

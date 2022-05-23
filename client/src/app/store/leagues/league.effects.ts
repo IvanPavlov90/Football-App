@@ -9,13 +9,13 @@ import { addLeague, AddLeagueError, addLeagueSuccess, loadLeagues, loadLeaguesEr
 @Injectable()
 export class LeagueEffects {
   constructor(
-    private actions$: Actions, 
+    private _actions$: Actions, 
     private _leagueService: LeagueService,
     private _notificationService: NotificationsService,
   ) { }
 
   loadLeagues$ = createEffect(
-    () => this.actions$.pipe(
+    () => this._actions$.pipe(
       ofType(loadLeagues),
       exhaustMap(() => this._leagueService.getLeagues().pipe(
         map(leagues => loadLeagueSuccess({ leagues })),
@@ -25,7 +25,7 @@ export class LeagueEffects {
   )
 
   addLeague$ = createEffect(
-    () => this.actions$.pipe(
+    () => this._actions$.pipe(
       ofType(addLeague),
       exhaustMap((newLeague: LeagueRequest) => this._leagueService.addLeague(newLeague).pipe(
         map(league => {

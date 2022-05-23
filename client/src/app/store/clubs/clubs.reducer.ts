@@ -1,8 +1,8 @@
 import { createReducer, on } from "@ngrx/store";
-import { ClubRequest } from "src/app/interfaces/club.interface";
+import { ClubResponse } from "src/app/interfaces/club.interface";
 import { AddClubError, addClubSuccess } from "./club.actions";
 
-const initialState: Array<ClubRequest> = [];
+const initialState: Array<ClubResponse> = [];
 
 export const clubReducer = createReducer(
   initialState,

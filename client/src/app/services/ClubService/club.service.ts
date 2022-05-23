@@ -12,7 +12,7 @@ export class ClubService {
 
   private _ADD_CLUB_URL = 'http://localhost:3000/api/club/add';
 
-  addLeague(club: ClubRequest): Observable<ClubResponse> {
+  addClub(club: ClubRequest): Observable<ClubResponse> {
     return this._http.post<ClubResponse>(this._ADD_CLUB_URL, JSON.stringify(club), {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     });

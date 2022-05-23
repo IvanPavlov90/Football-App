@@ -19,6 +19,7 @@ import { SubmitBtnComponent } from './components/submit-btn/submit-btn.component
 import { InfoInputComponent } from './components/info-input/info-input.component';
 import { FileInputComponent } from './components/file-input/file-input.component';
 import { reducers } from './store/index'
+import { ClubEffects } from './store/clubs/club.effects';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { reducers } from './store/index'
       maxAge: 10,
       autoPause: true
     }),
-    EffectsModule.forRoot([LeagueEffects])
+    EffectsModule.forRoot([LeagueEffects, ClubEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
