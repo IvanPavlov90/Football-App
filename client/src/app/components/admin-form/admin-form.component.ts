@@ -43,7 +43,8 @@ export class AdminFormComponent implements OnInit {
           image: this.selectedFile,
         }
         this._store.dispatch(addLeague(league));
-        this.clearForm();
+        this.selectedFile = '';
+        this.adminForm.reset();
         break;
       case 'club':
         const club: ClubRequest = {
@@ -56,15 +57,12 @@ export class AdminFormComponent implements OnInit {
           history: this.adminForm.value.history,
         }
         this._store.dispatch(addClub(club));
+        this.selectedFile = '';
+        this.adminForm.reset();
         break;
       default: 
         break;
     }
-  }
-
-  private clearForm(): void {
-    this.adminForm.value.leagueName = '';
-    this.adminForm.value.image = '';
   }
 
   public fileUpload(fileName: string | null | ArrayBuffer ) {

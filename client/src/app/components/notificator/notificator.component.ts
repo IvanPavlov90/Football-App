@@ -7,7 +7,7 @@ import { NotificationsService } from 'src/app/services/Notifications/notificatio
   templateUrl: './notificator.component.html',
   styleUrls: ['./notificator.component.scss']
 })
-export class NotificatorComponent implements OnInit {
+export class NotificatorComponent {
 
   constructor(private _notificationService: NotificationsService) { 
     this._notificationService.getNotifications().subscribe(
@@ -24,9 +24,6 @@ export class NotificatorComponent implements OnInit {
 
   closeNotifications(notification: NotificationModel) {
     this.notifications.delete(notification);
-  }
-
-  ngOnInit(): void {
   }
 
 }

@@ -20,6 +20,8 @@ import { InfoInputComponent } from './components/info-input/info-input.component
 import { FileInputComponent } from './components/file-input/file-input.component';
 import { reducers } from './store/index'
 import { ClubEffects } from './store/clubs/club.effects';
+import { ClubsComponent } from './components/clubs/clubs.component';
+import { ClubItemComponent } from './components/club-item/club-item.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ClubEffects } from './store/clubs/club.effects';
     SubmitBtnComponent,
     InfoInputComponent,
     FileInputComponent,
+    ClubsComponent,
+    ClubItemComponent,
   ],
   imports: [
     BrowserModule,

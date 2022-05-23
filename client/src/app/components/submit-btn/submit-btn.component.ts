@@ -5,13 +5,10 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './submit-btn.component.html',
   styleUrls: ['./submit-btn.component.scss']
 })
-export class SubmitBtnComponent implements OnInit {
+export class SubmitBtnComponent {
 
   constructor() { }
 
   @Input() isDisabled: boolean = false;
-
-  ngOnInit(): void {
-  }
 
 }
